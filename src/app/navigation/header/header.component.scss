@@ -3,7 +3,6 @@
 :host {
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
-  border-bottom: solid #555555 1px;
 }
 
 .top-nav {
@@ -43,7 +42,7 @@
   display: inline-block;
   flex-direction: row;
   color: $color-theme-blue;
-  transition: color 0.5s;
+  transition: color 0.3s;
   font-weight: 500;
   padding: 0 8%;
   @include for-tablet-portrait-up {
@@ -51,7 +50,7 @@
   }
 }
 .top-nav-item:hover {
-  color: black;
+  color: $color-theme-orange;
 }
 
 .top-nav-image {
