@@ -1,3 +1,25 @@
-<p>
-  header works!
-</p>
+<div class="top-nav">
+  <div class="top-nav-side-div">
+    <span class="top-nav-item hamburger" (click)="onToggleHamburger()">
+      <fa-icon [icon]="hamburgerIcon" size="lg"></fa-icon>
+    </span>
+    <span class="top-nav-item">
+      <fa-icon [icon]="searchIcon" size="lg"></fa-icon>
+      <span class="hidable-text"> SEARCH</span>
+    </span>
+  </div>
+  <div class="top-nav-image-div">
+    <img class="top-nav-image" src="/assets/img/logo.png" />
+  </div>
+  <div class="top-nav-side-div">
+    <span class="top-nav-item">
+      <fa-icon [icon]="myAccountIcon" size="lg"></fa-icon>
+      <span class="hidable-text"> MY ACCOUNT</span>
+    </span>
+    <span class="top-nav-item">
+      <fa-icon [icon]="myBagIcon" size="lg"></fa-icon>
+      <span class="hidable-text"> MY BAG</span>
+    </span>
+  </div>
+</div>
+<app-navbar [collapsed]="navBarCollapsed"></app-navbar>

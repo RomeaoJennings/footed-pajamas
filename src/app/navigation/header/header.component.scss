@@ -1,0 +1,76 @@
+@import '../../../styles/vars';
+
+:host {
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: solid #555555 1px;
+}
+
+.top-nav {
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+  padding: 1rem 0;
+}
+
+.top-nav-image-div {
+  align-self: center;
+  flex-shrink: 0;
+  flex-basis: 70%;
+  @include for-tablet-portrait-up {
+    flex-basis: 65%;
+  }
+  @include for-tablet-landscape-up {
+    flex-basis: 40%;
+  }
+}
+
+.top-nav-side-div {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 15%;
+  @include for-tablet-portrait-up {
+    flex-basis: 17.5%;
+  }
+  @include for-tablet-landscape-up {
+    flex-basis: 30%;
+  }
+}
+
+.top-nav-item {
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  color: $color-theme-blue;
+  transition: color 0.5s;
+  font-weight: 500;
+  padding: 0 8%;
+  @include for-tablet-portrait-up {
+    padding: 0 5%;
+  }
+}
+.top-nav-item:hover {
+  color: black;
+}
+
+.top-nav-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.hidable-text {
+  display: none;
+
+  @include for-tablet-landscape-up {
+    display: inline;
+  }
+}
+
+.hamburger {
+  @include for-tablet-landscape-up {
+    display: none;
+  }
+}

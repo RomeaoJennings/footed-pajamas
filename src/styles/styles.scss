@@ -1,5 +1,6 @@
-$font-stack: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-  sans-serif;
+@import 'vars';
+
+//Base styles
 
 * {
   box-sizing: border-box;
@@ -80,4 +81,11 @@ h5 {
 
 h6 {
   font-size: 1rem;
+}
+
+.hidden-below-md {
+  display: none;
+  @include for-tablet-landscape-up {
+    display: flex;
+  }
 }
