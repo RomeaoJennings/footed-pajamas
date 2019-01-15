@@ -253,7 +253,7 @@ export const ProductData: Product[] = [
     24.99,
     17.99,
     [
-      '/assets/img/FL-156-I/FL-156-I-1.jpg',
+      '/assets/img/FL-156-I/FL-156-I-2T.jpg',
       '/assets/img/FL-156-I/FL-156-I-3S.jpg',
       '/assets/img/FL-156-I/FL-156-I-4T.jpg'
     ],
