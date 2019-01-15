@@ -17,7 +17,7 @@
   flex-shrink: 0;
   flex-basis: 70%;
   @include for-tablet-portrait-up {
-    flex-basis: 65%;
+    flex-basis: 40%;
   }
   @include for-tablet-landscape-up {
     flex-basis: 40%;
@@ -30,7 +30,7 @@
   justify-content: center;
   flex-basis: 15%;
   @include for-tablet-portrait-up {
-    flex-basis: 17.5%;
+    flex-basis: 30%;
   }
   @include for-tablet-landscape-up {
     flex-basis: 30%;
