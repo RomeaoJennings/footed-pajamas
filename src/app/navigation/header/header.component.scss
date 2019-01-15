@@ -19,9 +19,6 @@
   @include for-tablet-portrait-up {
     flex-basis: 40%;
   }
-  @include for-tablet-landscape-up {
-    flex-basis: 40%;
-  }
 }
 
 .top-nav-side-div {
@@ -30,9 +27,6 @@
   justify-content: center;
   flex-basis: 15%;
   @include for-tablet-portrait-up {
-    flex-basis: 30%;
-  }
-  @include for-tablet-landscape-up {
     flex-basis: 30%;
   }
 }
