@@ -1,3 +1,5 @@
-<p>
-  product-list works!
-</p>
+<app-product-list-row
+  *ngFor="let row of rows"
+  [row]="row"
+  [numberOfColumns]="groupsOf"
+></app-product-list-row>
