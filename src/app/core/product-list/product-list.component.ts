@@ -1,22 +1,30 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { ProductData } from '../../shared/products.data';
 import { Product } from '../../shared/product.model';
+import { ProductService } from '../../shared/product.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
   @Input() groupsOf = 5;
-  products: Product[] = ProductData;
+  productSubscription: Subscription;
+  products: Product[];
   rows: Array<Product[]>;
 
-  constructor() {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    this.rows = this.splitProducts();
+    this.productSubscription = this.productService
+      .getProducts()
+      .subscribe(products => {
+        this.products = <Product[]>products;
+        this.rows = this.splitProducts();
+      });
   }
 
   private splitProducts(): Array<Product[]> {
@@ -26,5 +34,9 @@ export class ProductListComponent implements OnInit {
       result.push(data.splice(0, this.groupsOf));
     }
     return result;
+  }
+
+  ngOnDestroy(): void {
+    this.productSubscription.unsubscribe();
   }
 }

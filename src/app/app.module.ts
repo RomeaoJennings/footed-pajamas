@@ -2,12 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationModule } from './navigation/navigation.module';
 import { CoreModule } from './core/core.module';
-import { FirebaseService } from './shared/firebase.service';
+import { ProductService } from './shared/product.service';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -16,11 +17,12 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     AppRoutingModule,
     NavigationModule,
     CoreModule
   ],
-  providers: [FirebaseService],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
