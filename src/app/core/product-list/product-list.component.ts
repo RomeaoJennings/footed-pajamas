@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { ProductData } from '../../models/products.data';
-import { Product } from '../../models/product.model';
+import { ProductData } from '../../shared/products.data';
+import { Product } from '../../shared/product.model';
 
 @Component({
   selector: 'app-product-list',
