@@ -3,28 +3,30 @@ import {
   AngularFirestoreCollection
 } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-import * as infantFleece from '../shared/data.json';
+
+import { Product } from './product.model.js';
 
 @Injectable()
 export class ProductService {
-  private productCollection: AngularFirestoreCollection;
+  private productCollection: AngularFirestoreCollection<Product>;
+  data: any;
 
   constructor(private db: AngularFirestore) {
-    this.productCollection = db.collection('products');
+    this.productCollection = db.collection<Product>('products');
   }
 
-  private resetProducts() {
-    this.deleteAllProducts();
-    this.addProductsFromJson();
+  addProduct(product: Product) {
+    this.productCollection
+      .doc(product.id)
+      .set(product)
+      .catch(err => console.log(err));
   }
 
-  private addProductsFromJson() {
-    infantFleece.forEach(product => {
-      this.productCollection.add(product);
-    });
+  addProducts(products: Product[]) {
+    products.forEach(product => this.addProduct(product));
   }
 
-  private deleteAllProducts() {
+  deleteAllProducts() {
     const observable = this.productCollection.get();
     observable.subscribe(querySnap => {
       querySnap.forEach(docSnap => {
@@ -39,4 +41,20 @@ export class ProductService {
   getProducts() {
     return this.productCollection.valueChanges();
   }
+
+  // testProducts() {
+  //   this.productCollection
+  //     .snapshotChanges()
+  //     .pipe(
+  //       map(docChangeAction => {
+  //         return docChangeAction.map(doc => {
+  //           const document = doc.payload.doc;
+  //           return { key: document.id, ...document.data() };
+  //         });
+  //       })
+  //     )
+  //     .subscribe(result => {
+  //       this.data = result;
+  //     });
+  // }
 }
