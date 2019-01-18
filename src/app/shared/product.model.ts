@@ -2,12 +2,13 @@ export class Product {
   constructor(
     public name: string,
     public productCode: string,
-    public style: string,
+    public material: string,
     public category: string,
+    public features: string[],
     public listPrice: number,
     public salePrice: number,
-    public imageUrls: Array<string>,
+    public imageUrls: string[],
     public washInstructions: string,
-    public notes: Array<string>
+    public notes: string[]
   ) {}
 }

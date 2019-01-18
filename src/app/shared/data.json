@@ -2,8 +2,9 @@
   {
     "productCode": "FL-182-I",
     "name": "Santa's Village Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 17.95,
     "imageUrls": [
@@ -23,8 +24,9 @@
   {
     "productCode": "FL-180-I",
     "name": "Automotive Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 29.95,
     "salePrice": 17.95,
     "imageUrls": [
@@ -46,8 +48,9 @@
   {
     "productCode": "FL-178-I",
     "name": "Tis The Season Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 29.95,
     "salePrice": 17.95,
     "imageUrls": [
@@ -67,8 +70,9 @@
   {
     "productCode": "ZFL-110-I",
     "name": "Blue Cupcakes Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 17.99,
     "imageUrls": [
@@ -87,8 +91,9 @@
   {
     "productCode": "ZFL-109-I",
     "name": "Hearts of Love Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 17.99,
     "imageUrls": [
@@ -108,8 +113,9 @@
   {
     "productCode": "ZFL-106-I",
     "name": "Bright Red Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 17.95,
     "imageUrls": [
@@ -129,8 +135,9 @@
   {
     "productCode": "ZFL-105-I",
     "name": "Creamsicle Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 8.95,
     "imageUrls": [
@@ -150,8 +157,9 @@
   {
     "productCode": "FL-204-I",
     "name": "Emerald Green Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 17.95,
     "imageUrls": [
@@ -171,8 +179,9 @@
   {
     "productCode": "FL-200-I",
     "name": "Midnite Black Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 17.95,
     "imageUrls": [
@@ -191,8 +200,9 @@
   {
     "productCode": "FL-177-I",
     "name": "It's A Snow Day Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 17.95,
     "imageUrls": [
@@ -212,8 +222,9 @@
   {
     "productCode": "FL-161-I",
     "name": "Pretty in Pink Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 5.99,
     "imageUrls": [
@@ -233,8 +244,9 @@
   {
     "productCode": "FL-201-I",
     "name": "Arctic White Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 17.95,
     "imageUrls": [
@@ -254,8 +266,9 @@
   {
     "productCode": "FL-156-I",
     "name": "Holly Jolly Christmas Infant Fleece Onesie",
-    "style": "fleece",
-    "category": "infant",
+    "material": "fleece",
+    "category": "fleece",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 17.95,
     "imageUrls": [
@@ -275,8 +288,9 @@
   {
     "productCode": "FL-150-I",
     "name": "Winter Wonderland Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 17.95,
     "imageUrls": [
@@ -296,8 +310,9 @@
   {
     "productCode": "FL-159-I",
     "name": "Zebra Stripes Infant Fleece Onesie",
-    "style": "fleece",
+    "material": "fleece",
     "category": "infant",
+    "features": ["footed", "no hood"],
     "listPrice": 24.99,
     "salePrice": 5.99,
     "imageUrls": ["/assets/img/FL-159-I/FL-159-I-2T.jpg"],
