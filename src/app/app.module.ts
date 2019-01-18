@@ -10,6 +10,7 @@ import { NavigationModule } from './navigation/navigation.module';
 import { CoreModule } from './core/core.module';
 import { ProductService } from './shared/product.service';
 import { environment } from '../environments/environment';
+import { DbBuildService } from './db/db-build.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,7 @@ import { environment } from '../environments/environment';
     NavigationModule,
     CoreModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, DbBuildService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
