@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.filters {
+  display: flex;
+  border: solid black 1px;
+  flex-basis: 33%;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 67%;
+  border: solid blue 1px;
+}
