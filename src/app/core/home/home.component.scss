@@ -1,3 +1,7 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 0;
+  border: dashed blue 1px;
+  justify-content: center;
 }

@@ -4,14 +4,16 @@
 }
 
 .filters {
+  padding-top: 1rem;
   display: flex;
+  align-items: center;
   border: solid black 1px;
-  flex-basis: 33%;
+  flex-basis: 27%;
 }
 
 .product-list {
   display: flex;
   flex-direction: row;
-  flex-basis: 67%;
+  flex-basis: 73%;
   border: solid blue 1px;
 }
