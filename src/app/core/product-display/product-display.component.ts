@@ -11,7 +11,7 @@ export class ProductDisplayComponent implements OnInit {
 
   ngOnInit() {
     // TODO: Move this to a guard.
-    const validCategories = ['adults', 'kids', 'toddlers', 'infants', 'pets'];
+    const validCategories = ['adult', 'kid', 'toddler', 'infant', 'pet'];
 
     if (
       validCategories.findIndex(
