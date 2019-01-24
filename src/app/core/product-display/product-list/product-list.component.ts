@@ -1,9 +1,11 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 import { Product } from '../../../shared/product.model';
 import { ProductService } from '../../../shared/product.service';
-
+import * as fromApp from '../../../store/app.reducers';
+import * as ProductActions from '../store/product.actions';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -13,16 +15,26 @@ export class ProductListComponent implements OnInit, OnDestroy {
   @Input() groupsOf = 5;
   productSubscription: Subscription;
   products: Product[];
-  rows: Array<Product[]>;
+  rows: Product[][];
+  loading: boolean;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private store: Store<fromApp.AppState>
+  ) {}
 
   ngOnInit() {
-    this.productSubscription = this.productService
-      .getProducts()
-      .subscribe(products => {
-        this.products = <Product[]>products;
-        this.rows = this.splitProducts();
+    this.store.dispatch(new ProductActions.Fetch());
+    this.productSubscription = this.store
+      .select('products')
+      .subscribe(productState => {
+        this.loading = productState.loading;
+        if (!productState.error) {
+          this.products = productState.products;
+          this.rows = this.splitProducts();
+        } else {
+          console.log(productState.error);
+        }
       });
   }
 

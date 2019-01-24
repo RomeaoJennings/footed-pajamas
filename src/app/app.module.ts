@@ -11,6 +11,11 @@ import { CoreModule } from './core/core.module';
 import { ProductService } from './shared/product.service';
 import { environment } from '../environments/environment';
 import { DbBuildService } from './db/db-build.service';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import { reducers } from './store/app.reducers';
+import { ProductEffects } from './core/product-display/store/product.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +26,9 @@ import { DbBuildService } from './db/db-build.service';
     AngularFireStorageModule,
     AppRoutingModule,
     NavigationModule,
-    CoreModule
+    CoreModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([ProductEffects])
   ],
   providers: [ProductService, DbBuildService],
   bootstrap: [AppComponent]
