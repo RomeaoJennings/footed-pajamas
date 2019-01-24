@@ -3,7 +3,6 @@ import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { Product } from '../../../shared/product.model';
-import { ProductService } from '../../../shared/product.service';
 import * as fromApp from '../../../store/app.reducers';
 import * as ProductActions from '../store/product.actions';
 @Component({
@@ -12,16 +11,13 @@ import * as ProductActions from '../store/product.actions';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit, OnDestroy {
-  @Input() groupsOf = 5;
+  @Input() groupsOf = 2;
   productSubscription: Subscription;
   products: Product[];
   rows: Product[][];
   loading: boolean;
 
-  constructor(
-    private productService: ProductService,
-    private store: Store<fromApp.AppState>
-  ) {}
+  constructor(private store: Store<fromApp.AppState>) {}
 
   ngOnInit() {
     this.store.dispatch(new ProductActions.Fetch());
