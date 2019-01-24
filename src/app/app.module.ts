@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { DbBuildService } from './db/db-build.service';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { reducers } from './store/app.reducers';
 import { ProductEffects } from './core/product-display/store/product.effects';
@@ -28,7 +29,8 @@ import { ProductEffects } from './core/product-display/store/product.effects';
     NavigationModule,
     CoreModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([ProductEffects])
+    EffectsModule.forRoot([ProductEffects]),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [ProductService, DbBuildService],
   bootstrap: [AppComponent]
