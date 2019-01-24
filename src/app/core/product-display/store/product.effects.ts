@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import * as ProductActions from './product.actions';
-import { switchMap, map, delay } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 import {
   AngularFirestore,
