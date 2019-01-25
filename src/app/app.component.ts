@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DbBuildService } from './db/db-build.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +7,4 @@ import { DbBuildService } from './db/db-build.service';
 })
 export class AppComponent {
   title = 'footed-pajamas';
-
-  constructor(private dbBuilder: DbBuildService) {
-    // dbBuilder.buildProductsDb();
-  }
 }

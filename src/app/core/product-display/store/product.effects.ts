@@ -19,7 +19,7 @@ export class ProductEffects {
 
   constructor(private $actions: Actions, db: AngularFirestore) {
     this.fsProducts = db.collection('Products');
-    this.fsProductDetails = db.collection('ProductCategory');
+    this.fsProductDetails = db.collection('ProductDetail');
   }
 
   @Effect()

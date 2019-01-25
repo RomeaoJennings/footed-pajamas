@@ -1,4 +1,4 @@
-import { Product } from '../shared/product.model';
+import { Product } from '../src/app/shared/product.model';
 
 export const infantChenille: Product[] = [
   {

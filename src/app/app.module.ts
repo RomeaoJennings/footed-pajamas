@@ -10,7 +10,6 @@ import { NavigationModule } from './navigation/navigation.module';
 import { CoreModule } from './core/core.module';
 import { ProductService } from './shared/product.service';
 import { environment } from '../environments/environment';
-import { DbBuildService } from './db/db-build.service';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -32,7 +31,7 @@ import { ProductEffects } from './core/product-display/store/product.effects';
     EffectsModule.forRoot([ProductEffects]),
     StoreDevtoolsModule.instrument()
   ],
-  providers: [ProductService, DbBuildService],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
