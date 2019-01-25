@@ -8,16 +8,21 @@ firebase.initializeApp(firebaseConfig.firebaseConfig);
 const db = firebase.firestore();
 
 for (const product of data.products) {
-  addRecord('Products', product);
+  const details = product.details;
+  delete product.details;
+  addRecord('Products', product, product.id);
+
+  for (const detail of details) {
+    const docId = `${detail.productId}-${detail.category
+      .charAt(0)
+      .toUpperCase()}`;
+    addRecord('ProductDetail', buildDetailRecord(detail), docId);
+  }
 }
 
-for (const detail of data.details) {
-  addRecord('ProductDetail', buildDetailRecord(detail));
-}
-
-function addRecord(collection, record) {
+function addRecord(collection, record, docId) {
   db.collection(collection)
-    .doc()
+    .doc(docId)
     .set(record)
     .catch(err => console.log(err));
 }
