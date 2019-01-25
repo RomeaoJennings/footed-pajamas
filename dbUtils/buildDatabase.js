@@ -13,6 +13,7 @@ for (const product of data.products) {
   addRecord('Products', product, product.id);
 
   for (const detail of details) {
+    detail.productId = product.id;
     const docId = `${detail.productId}-${detail.category
       .charAt(0)
       .toUpperCase()}`;
