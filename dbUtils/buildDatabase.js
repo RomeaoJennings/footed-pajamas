@@ -2,12 +2,12 @@ const firebase = require('firebase');
 require('firebase/firestore');
 
 const firebaseConfig = require('./config');
-const data = require('./data');
+const chinelle = require('./data-chenille');
 
 firebase.initializeApp(firebaseConfig.firebaseConfig);
 const db = firebase.firestore();
 
-for (const product of data.products) {
+for (const product of chinelle.products) {
   const details = product.details;
   delete product.details;
   addRecord('Products', product, product.id);
@@ -35,7 +35,7 @@ function buildDetailRecord(detail) {
 
   for (let i = 0; i < result.numImages; i++) {
     result.imageUrls.push(
-      `${result.productId}%2F${result.productId}-${sizeChar}${i}.jpg`
+      `Products%2F${result.productId}%2F${result.productId}-${sizeChar}${i}.jpg`
     );
   }
 
