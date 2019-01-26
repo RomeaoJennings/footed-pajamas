@@ -16,6 +16,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { reducers } from './store/app.reducers';
 import { ProductEffects } from './core/product-display/store/product.effects';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { ProductEffects } from './core/product-display/store/product.effects';
     AppRoutingModule,
     NavigationModule,
     CoreModule,
+    HomeModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([ProductEffects]),
     StoreDevtoolsModule.instrument()
