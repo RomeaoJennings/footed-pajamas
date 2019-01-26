@@ -1,4 +1,4 @@
-import * as fromProducts from '../products/store/product.reducers';
+import * as fromProducts from './product/product.reducers';
 import { ActionReducerMap } from '@ngrx/store';
 
 export interface AppState {

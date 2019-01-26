@@ -1,4 +1,4 @@
-import { Product } from 'src/app/shared/product.model';
+import { Product } from 'src/app/shared/models/product.model';
 import * as ProductActions from './product.actions';
 
 export interface ProductGroup {

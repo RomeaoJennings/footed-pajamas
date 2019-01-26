@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Product } from 'src/app/shared/product.model';
+import { Product } from 'src/app/shared/models/product.model';
 
 export const GET_PRODUCTS = '[Products] GET PRODUCTS';
 export const RECEIVE_PRODUCTS = '[Products] RECEIVE PRODUCTS';

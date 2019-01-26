@@ -7,10 +7,9 @@ import {
   AngularFirestore,
   AngularFirestoreCollection
 } from '@angular/fire/firestore';
-
-import { FirestoreProduct } from 'src/app/shared/firestore-product.model';
-import { FirestoreProductDetail } from 'src/app/shared/firestore-product-detail.model';
-import { Product } from 'src/app/shared/product.model';
+import { FirestoreProduct } from 'src/app/shared/models/firestore-product.model';
+import { FirestoreProductDetail } from 'src/app/shared/models/firestore-product-detail.model';
+import { Product } from 'src/app/shared/models/product.model';
 
 @Injectable()
 export class ProductEffects {

@@ -3,9 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { Product } from '../../shared/product.model';
 import * as fromApp from '../../store/app.reducers';
-import * as ProductActions from '../store/product.actions';
+import * as ProductActions from '../../store/product/product.actions';
+import { Product } from 'src/app/shared/models/product.model';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',

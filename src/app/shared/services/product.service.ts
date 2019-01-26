@@ -4,7 +4,7 @@ import {
 } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 
-import { Product } from './product.model.js';
+import { Product } from '../../shared/models/product.model';
 
 @Injectable()
 export class ProductService {
