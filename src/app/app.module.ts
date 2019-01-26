@@ -6,7 +6,6 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationModule } from './navigation/navigation.module';
 import { CoreModule } from './core/core.module';
 import { ProductService } from './shared/product.service';
 import { environment } from '../environments/environment';
@@ -16,22 +15,19 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { reducers } from './store/app.reducers';
 import { ProductEffects } from './core/product-display/store/product.effects';
-import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    environment.production ? [] : StoreDevtoolsModule.instrument(),
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireStorageModule,
     AppRoutingModule,
-    NavigationModule,
     CoreModule,
-    HomeModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([ProductEffects]),
-    StoreDevtoolsModule.instrument()
+    EffectsModule.forRoot([ProductEffects])
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
