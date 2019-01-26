@@ -1,16 +1,33 @@
 import { Product } from 'src/app/shared/product.model';
 import * as ProductActions from './product.actions';
 
-export interface State {
-  products: Product[];
+export interface ProductGroup {
   loading: boolean;
   error: string;
+  products: Product[];
+}
+function getEmptyProductGroup(): ProductGroup {
+  return {
+    loading: false,
+    error: null,
+    products: []
+  };
+}
+
+export interface State {
+  adult: ProductGroup;
+  kid: ProductGroup;
+  toddler: ProductGroup;
+  infant: ProductGroup;
+  pet: ProductGroup;
 }
 
 const initialState: State = {
-  products: [],
-  loading: false,
-  error: null
+  adult: getEmptyProductGroup(),
+  kid: getEmptyProductGroup(),
+  toddler: getEmptyProductGroup(),
+  infant: getEmptyProductGroup(),
+  pet: getEmptyProductGroup()
 };
 
 export function productReducer(
@@ -18,27 +35,24 @@ export function productReducer(
   action: ProductActions.ProductActions
 ) {
   switch (action.type) {
-    case ProductActions.FETCH_PRODUCTS:
-      return {
-        ...state,
-        loading: true,
-        error: null
-      };
+    case ProductActions.GET_PRODUCTS:
+      let newState = { ...state };
+      newState[action.payload.category].loading = true;
+      newState[action.payload.category].error = null;
+      return newState;
 
-    case ProductActions.FETCH_PRODUCTS_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        products: action.payload.products
-      };
+    case ProductActions.RECEIVE_PRODUCTS:
+      newState = { ...state };
+      newState[action.payload.category].loading = false;
+      newState[action.payload.category].error = null;
+      newState[action.payload.category].products = action.payload.products;
+      return newState;
 
-    case ProductActions.FETCH_PRODUCTS_ERROR:
-      return {
-        ...state,
-        error: action.payload.error,
-        loading: false
-      };
+    case ProductActions.ERROR_RECEIVE_PRODUCTS:
+      newState = { ...state };
+      newState[action.payload.category].loading = false;
+      newState[action.payload.category].error = null;
+      return newState;
 
     default:
       return state;

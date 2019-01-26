@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 import { Product } from '../../../shared/product.model';
@@ -13,25 +15,39 @@ import * as ProductActions from '../store/product.actions';
 export class ProductListComponent implements OnInit, OnDestroy {
   @Input() groupsOf = 2;
   productSubscription: Subscription;
+  paramsSubscription: Subscription;
   products: Product[];
   rows: Product[][];
   loading: boolean;
 
-  constructor(private store: Store<fromApp.AppState>) {}
+  constructor(
+    private store: Store<fromApp.AppState>,
+    private activeRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.store.dispatch(new ProductActions.Fetch());
-    this.productSubscription = this.store
-      .select('products')
-      .subscribe(productState => {
-        this.loading = productState.loading;
-        if (!productState.error) {
-          this.products = productState.products;
-          this.rows = this.splitProducts();
-        } else {
-          console.log(productState.error);
-        }
-      });
+    this.activeRoute.params.subscribe(params => {
+      const category = params['category'];
+
+      console.log(`Category: ${category}`);
+      this.store.dispatch(
+        new ProductActions.GetProducts({ category: category })
+      );
+      if (this.productSubscription) {
+        this.productSubscription.unsubscribe();
+      }
+      this.productSubscription = this.store
+        .select('products')
+        .subscribe(productState => {
+          this.loading = productState[category].loading;
+          if (!productState[category].error) {
+            this.products = productState[category].products;
+            this.rows = this.splitProducts();
+          } else {
+            console.log(productState[category].error);
+          }
+        });
+    });
   }
 
   private splitProducts(): Array<Product[]> {
@@ -45,5 +61,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.productSubscription.unsubscribe();
+    this.paramsSubscription.unsubscribe();
   }
 }

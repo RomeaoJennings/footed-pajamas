@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import * as ProductActions from './product.actions';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, delay } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 import {
   AngularFirestore,
@@ -16,23 +16,30 @@ import { Product } from 'src/app/shared/product.model';
 export class ProductEffects {
   fsProducts: AngularFirestoreCollection<FirestoreProduct>;
   fsProductDetails: AngularFirestoreCollection<FirestoreProductDetail>;
+  detailCollection = 'ProductDetail';
 
-  constructor(private $actions: Actions, db: AngularFirestore) {
+  constructor(private $actions: Actions, private db: AngularFirestore) {
     this.fsProducts = db.collection('Products');
-    this.fsProductDetails = db.collection('ProductDetail');
+    this.fsProductDetails = db.collection('ProductDetail'); // TODO: MOVE THIS TO ENVIRONMENT OBJ
   }
 
   @Effect()
   fetchProducts = this.$actions.pipe(
-    ofType(ProductActions.FETCH_PRODUCTS),
-    switchMap(() => {
+    ofType<ProductActions.GetProducts>(ProductActions.GET_PRODUCTS),
+    map(action => action.payload.category),
+    switchMap(category => {
       return combineLatest(
         this.fsProducts.valueChanges(),
-        this.fsProductDetails.valueChanges()
+        this.db
+          .collection<FirestoreProductDetail>(this.detailCollection, ref =>
+            ref.where('category', '==', category)
+          )
+          .valueChanges()
       ).pipe(
         map(data => {
-          return new ProductActions.FetchSuccess({
-            products: this.buildProductsFromFirebaseData(...data)
+          return new ProductActions.ReceiveProducts({
+            products: this.buildProductsFromFirebaseData(...data),
+            category
           });
         })
       );
