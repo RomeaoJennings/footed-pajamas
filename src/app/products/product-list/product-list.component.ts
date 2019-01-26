@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { Product } from '../../../shared/product.model';
-import * as fromApp from '../../../store/app.reducers';
+import { Product } from '../../shared/product.model';
+import * as fromApp from '../../store/app.reducers';
 import * as ProductActions from '../store/product.actions';
 @Component({
   selector: 'app-product-list',

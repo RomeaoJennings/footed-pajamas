@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 
-import { ProductListComponent } from './product-display/product-list/product-list.component';
-import { ProductListRowComponent } from './product-display/product-list/product-list-row/product-list-row.component';
-import { ProductDisplayComponent } from './product-display/product-display.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
@@ -18,9 +15,6 @@ import { CoreComponent } from './core.component';
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    ProductListComponent,
-    ProductListRowComponent,
-    ProductDisplayComponent,
     CoreComponent
   ],
   imports: [CommonModule, FontAwesomeModule, RouterModule],

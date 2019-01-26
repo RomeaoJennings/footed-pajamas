@@ -14,7 +14,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { reducers } from './store/app.reducers';
-import { ProductEffects } from './core/product-display/store/product.effects';
+import { ProductEffects } from './products/store/product.effects';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { ProductEffects } from './core/product-display/store/product.effects';
     AngularFireStorageModule,
     AppRoutingModule,
     CoreModule,
+    ProductsModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([ProductEffects])
   ],
