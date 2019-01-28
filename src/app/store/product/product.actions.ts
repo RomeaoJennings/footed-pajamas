@@ -3,7 +3,7 @@ import { Product } from 'src/app/shared/models/product.model';
 
 export const FETCH = '[Products] FETCH';
 export const FETCH_SUCCESS = '[Products] FETCH_SUCCESS';
-export const FETCH_ERROR = '[Products FETCH_ERROR]';
+export const FETCH_ERROR = '[Products] FETCH_ERROR';
 
 export class FetchProducts implements Action {
   readonly type = FETCH;
