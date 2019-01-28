@@ -24,7 +24,7 @@ export class ProductEffects {
 
   @Effect()
   fetchProducts = this.$actions.pipe(
-    ofType<ProductActions.GetProducts>(ProductActions.GET_PRODUCTS),
+    ofType<ProductActions.FetchProducts>(ProductActions.FETCH),
     map(action => action.payload.category),
     switchMap(category => {
       return combineLatest(
@@ -36,7 +36,7 @@ export class ProductEffects {
           .valueChanges()
       ).pipe(
         map(data => {
-          return new ProductActions.ReceiveProducts({
+          return new ProductActions.FetchProductsSuccess({
             products: this.buildProductsFromFirebaseData(...data),
             category
           });

@@ -35,20 +35,20 @@ export function productReducer(
   action: ProductActions.ProductActions
 ) {
   switch (action.type) {
-    case ProductActions.GET_PRODUCTS:
+    case ProductActions.FETCH:
       let newState = { ...state };
       newState[action.payload.category].loading = true;
       newState[action.payload.category].error = null;
       return newState;
 
-    case ProductActions.RECEIVE_PRODUCTS:
+    case ProductActions.FETCH_SUCCESS:
       newState = { ...state };
       newState[action.payload.category].loading = false;
       newState[action.payload.category].error = null;
       newState[action.payload.category].products = action.payload.products;
       return newState;
 
-    case ProductActions.ERROR_RECEIVE_PRODUCTS:
+    case ProductActions.FETCH_ERROR:
       newState = { ...state };
       newState[action.payload.category].loading = false;
       newState[action.payload.category].error = null;
