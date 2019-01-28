@@ -3,6 +3,7 @@ exports.products = [
     id: 'CH-801',
     name: 'In the Clouds {Category} Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed'],
     colors: ['white'],
     washInstructions:
@@ -32,6 +33,7 @@ exports.products = [
     id: 'CH-801-H',
     name: 'In the Clouds {Category} Hoodie Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed', 'hoodie'],
     colors: ['white'],
     washInstructions:
@@ -67,6 +69,7 @@ exports.products = [
     id: 'CH-802-H',
     name: 'Heatwave {Category} Hoodie Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed', 'hoodie'],
     colors: ['red'],
     washInstructions:
@@ -108,6 +111,7 @@ exports.products = [
     id: 'CH-804-H',
     name: 'Teddy Bear {Category} Hoodie Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed', 'hoodie'],
     colors: ['brown'],
     washInstructions:
@@ -137,6 +141,7 @@ exports.products = [
     id: 'CH-805-H',
     name: 'Under the Sea {Category} Hoodie Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed', 'hoodie'],
     colors: ['blue'],
     washInstructions:
@@ -178,6 +183,7 @@ exports.products = [
     id: 'CH-806-H',
     name: 'Howling Moon {Category} Hoodie Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed', 'hoodie'],
     colors: ['grey'],
     washInstructions:
@@ -219,6 +225,7 @@ exports.products = [
     id: 'CH-807-H',
     name: 'Perfect Pink {Category} Hoodie Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed', 'hoodie'],
     colors: ['pink'],
     washInstructions:
@@ -254,6 +261,7 @@ exports.products = [
     id: 'CH-808-H',
     name: 'Navy Pink Polka {Category} Hoodie Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed', 'hoodie'],
     colors: ['blue', 'pink'],
     washInstructions:
@@ -295,6 +303,7 @@ exports.products = [
     id: 'CH-809-H',
     name: 'Cheetah Spots {Category} Hoodie Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed', 'hoodie'],
     colors: ['brown', 'yellow', 'black'],
     washInstructions:
@@ -336,6 +345,7 @@ exports.products = [
     id: 'CH-810-H',
     name: 'Neon Kitty {Category} Hoodie Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed', 'hoodie'],
     colors: ['blue', 'pink', 'black'],
     washInstructions:
@@ -377,6 +387,7 @@ exports.products = [
     id: 'CH-811-H',
     name: 'Jet Black {Category} Hoodie Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed', 'hoodie'],
     colors: ['black'],
     washInstructions:
@@ -418,6 +429,7 @@ exports.products = [
     id: 'CH-812-H',
     name: 'Pucker Up {Category} Hoodie Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed', 'hoodie'],
     colors: ['black', 'red'],
     washInstructions:
@@ -459,6 +471,7 @@ exports.products = [
     id: 'CH-813',
     name: 'Candy Cane Lane {Category} Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed'],
     colors: ['white', 'red'],
     washInstructions:
@@ -494,6 +507,7 @@ exports.products = [
     id: 'CH-813-H',
     name: 'Candy Cane Lane {Category} Hoodie Chenille Onesie',
     material: 'chinelle',
+    type: 'Chinelle Onesies',
     features: ['footed', 'hoodie'],
     colors: ['white', 'red'],
     washInstructions:

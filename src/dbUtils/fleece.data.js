@@ -3,6 +3,7 @@ exports.products = [
     id: 'FL-150',
     name: 'Winter Wonderland {Category} Fleece Onesie',
     material: 'fleece',
+    type: 'Fleece Onesies',
     features: ['footed'],
     colors: ['blue', 'white'],
     washInstructions:
@@ -44,6 +45,7 @@ exports.products = [
     id: 'FL-150-H',
     name: 'Winter Wonderland {Category} Hoodie Fleece Onesie',
     material: 'fleece',
+    type: 'Fleece Onesies',
     features: ['footed', 'hoodie'],
     colors: ['blue', 'white'],
     washInstructions:
@@ -85,6 +87,7 @@ exports.products = [
     id: 'FL-150-HD',
     name: 'Winter Wonderland {Category} Hoodie Dropseat Fleece Onesie',
     material: 'fleece',
+    type: 'Fleece Onesies',
     features: ['footed', 'hoodie', 'dropseat'],
     colors: ['blue', 'white'],
     washInstructions:
@@ -108,6 +111,7 @@ exports.products = [
     id: 'FL-156',
     name: 'Holly Jolly Christmas {Category} Fleece Onesie',
     material: 'fleece',
+    type: 'Fleece Onesies',
     features: ['footed'],
     colors: ['red'],
     washInstructions:
@@ -149,6 +153,7 @@ exports.products = [
     id: 'FL-156-H',
     name: 'Holly Jolly Christmas {Category} Hoodie Fleece Onesie',
     material: 'fleece',
+    type: 'Fleece Onesies',
     features: ['footed', 'hoodie'],
     colors: ['red'],
     washInstructions:
@@ -184,6 +189,7 @@ exports.products = [
     id: 'FL-159',
     name: 'Zebra Stripes {Category} Fleece Onesie',
     material: 'fleece',
+    type: 'Fleece Onesies',
     features: ['footed'],
     colors: ['black', 'white'],
     washInstructions:
@@ -207,6 +213,7 @@ exports.products = [
     id: 'FL-159-H',
     name: 'Zebra Stripes {Category} Hoodie Fleece Onesie',
     material: 'fleece',
+    type: 'Fleece Onesies',
     features: ['footed', 'hoodie'],
     colors: ['black', 'white'],
     washInstructions:
@@ -230,6 +237,7 @@ exports.products = [
     id: 'FL-160-H',
     name: 'Tiger Stripes {Category} Hoodie Fleece Onesie',
     material: 'fleece',
+    type: 'Fleece Onesies',
     features: ['footed', 'hoodie'],
     colors: ['orange', 'black'],
     washInstructions:
@@ -265,6 +273,7 @@ exports.products = [
     id: 'FL-161',
     name: 'Pretty in Polka {Category} Fleece Onesie',
     material: 'fleece',
+    type: 'Fleece Onesies',
     features: ['footed'],
     colors: ['pink', 'white'],
     washInstructions:
@@ -294,6 +303,7 @@ exports.products = [
     id: 'FL-162-H',
     name: 'Cowhide {Category} Hoodie Fleece Onesie',
     material: 'fleece',
+    type: 'Fleece Onesies',
     features: ['footed', 'hoodie'],
     colors: ['black', 'white'],
     washInstructions:

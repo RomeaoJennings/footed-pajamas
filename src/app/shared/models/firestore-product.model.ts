@@ -6,4 +6,5 @@ export interface FirestoreProduct {
   colors: string[];
   washInstructions: string;
   notes: string[];
+  type: string;
 }
