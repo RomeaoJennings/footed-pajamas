@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
       console.log(`Category: ${category}`);
       this.store.dispatch(
-        new ProductActions.GetProducts({ category: category })
+        new ProductActions.FetchProducts({ category: category })
       );
       if (this.productSubscription) {
         this.productSubscription.unsubscribe();
