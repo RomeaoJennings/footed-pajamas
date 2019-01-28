@@ -5,12 +5,13 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { ProductEffects } from './product/product.effects';
 import { reducers } from './app.reducers';
+import { CustomSerializer } from './router/route-serializer';
 
 @NgModule({
   imports: [
     EffectsModule.forRoot([ProductEffects]),
     StoreModule.forRoot(reducers),
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot({ serializer: CustomSerializer })
   ]
 })
 export class AppStoreModule {}

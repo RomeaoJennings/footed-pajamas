@@ -7,17 +7,16 @@ export const FETCH_ERROR = '[Products] FETCH_ERROR';
 
 export class FetchProducts implements Action {
   readonly type = FETCH;
-  constructor(public payload: { category: string }) {}
 }
 
 export class FetchProductsSuccess implements Action {
   readonly type = FETCH_SUCCESS;
-  constructor(public payload: { products: Product[]; category: string }) {}
+  constructor(public payload: { products: Product[] }) {}
 }
 
 export class FetchProductsError implements Action {
   readonly type = FETCH_ERROR;
-  constructor(public payload: { error: string; category: string }) {}
+  constructor(public payload: { error: string }) {}
 }
 
 export type ProductActions =

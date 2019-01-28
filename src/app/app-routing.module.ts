@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductsContainerComponent } from './products/products.container';
 import { HomeComponent } from './core/home/home.component';
+import { ProductDataResolver } from './products/products.dataResolver';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
   },
   {
     path: ':category',
-    component: ProductsContainerComponent
+    component: ProductsContainerComponent,
+    resolve: { loadData: ProductDataResolver }
   }
 ];
 

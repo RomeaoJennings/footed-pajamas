@@ -26,20 +26,14 @@ export class ProductEffects {
   @Effect()
   fetchProducts = this.actions$.pipe(
     ofType<ProductActions.FetchProducts>(ProductActions.FETCH),
-    map(action => action.payload.category),
-    switchMap(category => {
+    switchMap(() => {
       return combineLatest(
         this.fsProducts.valueChanges(),
-        this.db
-          .collection<FirestoreProductDetail>(this.detailCollection, ref =>
-            ref.where('category', '==', category)
-          )
-          .valueChanges()
+        this.fsProductDetails.valueChanges()
       ).pipe(
         map(data => {
           return new ProductActions.FetchProductsSuccess({
-            products: this.buildProductsFromFirebaseData(...data),
-            category
+            products: this.buildProductsFromFirebaseData(...data)
           });
         })
       );

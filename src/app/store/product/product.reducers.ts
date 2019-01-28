@@ -1,33 +1,18 @@
 import { Product } from 'src/app/shared/models/product.model';
 import * as ProductActions from './product.actions';
 
-export interface ProductGroup {
-  loading: boolean;
-  error: string;
-  products: Product[];
-}
-function getEmptyProductGroup(): ProductGroup {
-  return {
-    loading: false,
-    error: null,
-    products: []
-  };
-}
-
 export interface State {
-  adult: ProductGroup;
-  kid: ProductGroup;
-  toddler: ProductGroup;
-  infant: ProductGroup;
-  pet: ProductGroup;
+  products: Product[];
+  isLoaded: boolean;
+  isLoading: boolean;
+  error: string;
 }
 
 const initialState: State = {
-  adult: getEmptyProductGroup(),
-  kid: getEmptyProductGroup(),
-  toddler: getEmptyProductGroup(),
-  infant: getEmptyProductGroup(),
-  pet: getEmptyProductGroup()
+  products: [],
+  isLoaded: false,
+  isLoading: false,
+  error: null
 };
 
 export function productReducer(
@@ -36,23 +21,18 @@ export function productReducer(
 ) {
   switch (action.type) {
     case ProductActions.FETCH:
-      let newState = { ...state };
-      newState[action.payload.category].loading = true;
-      newState[action.payload.category].error = null;
-      return newState;
+      return { ...state, isLoading: true };
 
     case ProductActions.FETCH_SUCCESS:
-      newState = { ...state };
-      newState[action.payload.category].loading = false;
-      newState[action.payload.category].error = null;
-      newState[action.payload.category].products = action.payload.products;
-      return newState;
+      return {
+        ...state,
+        isLoading: false,
+        products: action.payload.products,
+        isLoaded: true
+      };
 
     case ProductActions.FETCH_ERROR:
-      newState = { ...state };
-      newState[action.payload.category].loading = false;
-      newState[action.payload.category].error = null;
-      return newState;
+      return { ...state, isLoading: false, error: action.payload.error };
 
     default:
       return state;
