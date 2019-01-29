@@ -3,13 +3,15 @@ import * as FilterActions from './product-filter.actions';
 
 export interface State {
   filters: ProductFilter[];
-  loading: boolean;
+  areLoading: boolean;
+  areLoaded: boolean;
   error: string;
 }
 
 const initialState: State = {
   filters: [],
-  loading: false,
+  areLoading: false,
+  areLoaded: false,
   error: null
 };
 
@@ -19,13 +21,18 @@ export function filterReducer(
 ) {
   switch (action.type) {
     case FilterActions.FETCH:
-      return { ...state, loading: true };
+      return { ...state, areLoading: true };
 
     case FilterActions.FETCH_SUCCESS:
-      return { ...state, loading: false, filters: action.payload.filters };
+      return {
+        ...state,
+        areLoading: false,
+        areLoaded: true,
+        filters: action.payload.filters
+      };
 
     case FilterActions.FETCH_ERROR:
-      return { ...state, loading: false, error: action.payload.error };
+      return { ...state, areLoading: false, error: action.payload.error };
 
     default:
       return state;

@@ -3,15 +3,15 @@ import * as ProductActions from './product.actions';
 
 export interface State {
   products: Product[];
-  isLoaded: boolean;
-  isLoading: boolean;
+  areLoaded: boolean;
+  areLoading: boolean;
   error: string;
 }
 
 const initialState: State = {
   products: [],
-  isLoaded: false,
-  isLoading: false,
+  areLoaded: false,
+  areLoading: false,
   error: null
 };
 
@@ -21,18 +21,18 @@ export function productReducer(
 ) {
   switch (action.type) {
     case ProductActions.FETCH:
-      return { ...state, isLoading: true };
+      return { ...state, areLoading: true };
 
     case ProductActions.FETCH_SUCCESS:
       return {
         ...state,
-        isLoading: false,
+        areLoading: false,
         products: action.payload.products,
-        isLoaded: true
+        areLoaded: true
       };
 
     case ProductActions.FETCH_ERROR:
-      return { ...state, isLoading: false, error: action.payload.error };
+      return { ...state, areLoading: false, error: action.payload.error };
 
     default:
       return state;
