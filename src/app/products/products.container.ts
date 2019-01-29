@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
@@ -18,11 +17,7 @@ export class ProductsContainerComponent implements OnInit, OnDestroy {
   productRows: Product[][] = [];
   groupsOf = 3;
 
-  constructor(
-    private store: Store<AppState>,
-    private activatedRoute: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
     this.productSubscription = this.store
