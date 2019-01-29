@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, catchError } from 'rxjs/operators';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import * as FilterActions from './product-filter.actions';
 import { ProductFilter } from 'src/app/shared/models/product-filter.model';
+import { of } from 'rxjs';
 
 @Injectable()
 export class FilterEffects {
@@ -20,7 +21,10 @@ export class FilterEffects {
         .pipe(
           map(data => {
             return new FilterActions.FetchFiltersSuccess({ filters: data });
-          })
+          }),
+          catchError(error =>
+            of(new FilterActions.FetchFiltersError({ error }))
+          )
         )
     )
   );
