@@ -7,10 +7,10 @@ import { Product } from 'src/app/shared/models/product.model';
   styleUrls: ['./products-row.component.scss']
 })
 export class ProductsRowComponent implements OnInit {
-  @Input() row: Product[];
-  @Input() numberOfColumns: number;
+  @Input() row: Product[] = [];
+  @Input() numberOfColumns = 0;
 
-  blankColumns;
+  blankColumns: number;
 
   constructor() {}
 

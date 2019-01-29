@@ -1,33 +1,38 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppStoreModule } from './store/app-store.module';
+import { SharedModule } from './shared/shared.module';
+import { ProductsModule } from './products/products.module';
+import { AppRoutingModule } from './routing/app-routing.module';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [AppComponent]
+      declarations: [AppComponent],
+      imports: [
+        BrowserModule,
+        AppStoreModule,
+        SharedModule,
+        CoreModule,
+        ProductsModule,
+        AppRoutingModule
+      ]
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'footed-pajamas'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('footed-pajamas');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain(
-      'Welcome to footed-pajamas!'
-    );
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
