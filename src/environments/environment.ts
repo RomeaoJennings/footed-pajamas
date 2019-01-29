@@ -11,7 +11,8 @@ export const environment = {
     projectId: 'footed-pajamas',
     storageBucket: 'footed-pajamas.appspot.com',
     messagingSenderId: '131791401424'
-  }
+  },
+  validCategoryValues: ['adult', 'kid', 'toddler', 'infant', 'pet']
 };
 
 /*

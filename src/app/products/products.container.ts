@@ -25,18 +25,6 @@ export class ProductsContainerComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    // FIXME: Move this to a guard.
-    // TODO: Move categories into environment config.
-    const validCategories = ['adult', 'kid', 'toddler', 'infant', 'pet'];
-    if (
-      validCategories.findIndex(
-        // TODO: Use NGRX Store for category.
-        val => val === this.activatedRoute.snapshot.params.category
-      ) === -1
-    ) {
-      this.router.navigate(['/']);
-    }
-
     this.productSubscription = this.store
       .select(ProductSelectors.selectProductsByCategory)
       .subscribe(products => {
