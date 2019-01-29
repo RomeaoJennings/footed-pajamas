@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/shared/models/product.model';
 
 @Component({
-  selector: 'app-product-list-row',
-  templateUrl: './product-list-row.component.html',
-  styleUrls: ['./product-list-row.component.scss']
+  selector: 'app-products-row',
+  templateUrl: './products-row.component.html',
+  styleUrls: ['./products-row.component.scss']
 })
-export class ProductListRowComponent implements OnInit {
+export class ProductsRowComponent implements OnInit {
   @Input() row: Product[];
   @Input() numberOfColumns: number;
 

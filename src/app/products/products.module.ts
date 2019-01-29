@@ -5,15 +5,15 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { environment } from 'src/environments/environment';
 import { ProductsContainerComponent } from './products.container';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductListRowComponent } from './product-list/product-list-row/product-list-row.component';
+import { ProductsRowComponent } from './products-row/products-row.component';
+import { ProductsComponent } from './products.component';
 import { ProductDataResolver } from './products.dataResolver';
 
 @NgModule({
   declarations: [
     ProductsContainerComponent,
-    ProductListComponent,
-    ProductListRowComponent
+    ProductsComponent,
+    ProductsRowComponent
   ],
   providers: [ProductDataResolver],
   imports: [
