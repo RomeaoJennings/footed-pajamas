@@ -9,12 +9,16 @@ import { ProductsRowComponent } from './products-row/products-row.component';
 import { ProductsComponent } from './products.component';
 import { ProductDataResolver } from './products.dataResolver';
 import { WindowProvider } from './services/window-provider.service';
+import { FiltersContainerComponent } from './filters/filters.container.';
+import { ProductHeaderComponent } from './product-header/product-header.component';
 
 @NgModule({
   declarations: [
     ProductsContainerComponent,
     ProductsComponent,
-    ProductsRowComponent
+    ProductsRowComponent,
+    FiltersContainerComponent,
+    ProductHeaderComponent
   ],
   providers: [ProductDataResolver, WindowProvider],
   imports: [
