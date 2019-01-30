@@ -1,7 +1,10 @@
+@import '../../../styles/vars';
+
 :host {
   padding-top: 1rem;
   display: flex;
   justify-content: center;
   flex-basis: 27%;
-  border: dashed red 1px;
+  border-radius: 20px;
+  border: solid $color-theme-blue 2px;
 }

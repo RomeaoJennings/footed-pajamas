@@ -1,5 +1,21 @@
+@import '../../../styles/vars';
+
 :host {
   display: flex;
-  justify-content: center;
-  border: dashed purple 1px;
+  flex-flow: column;
+  background-color: cornsilk;
+  min-height: 200px;
+  margin-bottom: 2rem;
+  border-bottom: solid $color-theme-blue 2px;
+  padding-left: 3rem;
+  padding-top: 1rem;
+}
+
+.breadcrumbs {
+  margin-bottom: 3rem;
+  color: $color-theme-blue;
+}
+
+.title {
+  color: #2f2f2f;
 }
