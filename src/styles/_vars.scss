@@ -9,8 +9,8 @@ $color-theme-orange: #f79521;
 
 $screen-tablet-portrait-min: 600px;
 $screen-tablet-landscape-min: 900px;
-$screen-computer-min: 992px;
-$screen-huge-computer-min: 1200px;
+$screen-computer-min: 1200px;
+$screen-huge-computer-min: 1600px;
 
 // Mixins
 @mixin for-tablet-portrait-up {
