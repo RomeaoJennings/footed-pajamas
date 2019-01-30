@@ -1,17 +1,10 @@
 :host {
   display: flex;
+  flex-flow: column nowrap;
+  padding: 0 2rem;
+}
+
+.main-content {
   flex-flow: row nowrap;
-}
-
-.filters {
-  padding-top: 1rem;
-  display: flex;
-  align-items: center;
-  flex-basis: 27%;
-}
-
-.product-list {
-  display: flex;
-  flex-direction: row;
-  flex-basis: 73%;
+  border: dashed orange 1px;
 }
