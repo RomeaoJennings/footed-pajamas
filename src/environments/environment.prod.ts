@@ -8,5 +8,14 @@ export const environment = {
     storageBucket: 'footed-pajamas.appspot.com',
     messagingSenderId: '131791401424'
   },
-  validCategoryValues: ['adult', 'kid', 'toddler', 'infant', 'pet']
+  validCategoryValues: ['adult', 'kid', 'toddler', 'infant', 'pet'],
+
+  screenBreakpoints: {
+    phone: 0,
+    tabletPortrait: 600,
+    tabletLandscape: 900,
+    computer: 1200,
+    hugeComputer: 1600,
+    asArray: [0, 600, 900, 1200, 1600]
+  }
 };

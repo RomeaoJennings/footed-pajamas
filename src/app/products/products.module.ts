@@ -8,6 +8,7 @@ import { ProductsContainerComponent } from './products.container';
 import { ProductsRowComponent } from './products-row/products-row.component';
 import { ProductsComponent } from './products.component';
 import { ProductDataResolver } from './products.dataResolver';
+import { WindowProvider } from './services/window-provider.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { ProductDataResolver } from './products.dataResolver';
     ProductsComponent,
     ProductsRowComponent
   ],
-  providers: [ProductDataResolver],
+  providers: [ProductDataResolver, WindowProvider],
   imports: [
     CommonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
