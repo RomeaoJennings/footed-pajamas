@@ -6,7 +6,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { ProductEffects } from './product/product.effects';
 import { reducers } from './app.reducers';
 import { CustomSerializer } from './router/route-serializer';
-import { FilterEffects } from './product-filter/product-filter.effects';
+import { FilterEffects } from './filter/filter.effects';
 
 @NgModule({
   imports: [

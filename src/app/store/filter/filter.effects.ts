@@ -3,9 +3,10 @@ import { switchMap, map, catchError } from 'rxjs/operators';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { AngularFirestore } from '@angular/fire/firestore';
 
-import * as FilterActions from './product-filter.actions';
-import { ProductFilter } from 'src/app/shared/models/product-filter.model';
+import * as FilterActions from './filter.actions';
+import { FilterFactory } from 'src/app/shared/models/filter-factory.model';
 import { of } from 'rxjs';
+import { Filter } from 'src/app/shared/models/filter.model';
 
 @Injectable()
 export class FilterEffects {
@@ -16,10 +17,18 @@ export class FilterEffects {
     ofType<FilterActions.FetchFilters>(FilterActions.FETCH),
     switchMap(() =>
       this.db
-        .collection<ProductFilter>('ProductFilters')
+        .collection<FilterFactory>('ProductFilters')
         .valueChanges()
         .pipe(
           map(data => {
+            data = data.map(
+              filter =>
+                new FilterFactory(
+                  filter.filterType,
+                  filter.target,
+                  filter.displayString
+                )
+            );
             return new FilterActions.FetchFiltersSuccess({ filters: data });
           }),
           catchError(error =>

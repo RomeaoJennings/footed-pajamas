@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { Product } from '../shared/models/product.model';
 import { AppState } from '../store/app.reducers';
-import * as ProductSelectors from '../store/product/product.selectors';
+import * as ProductFilterSelectors from '../store/filter/filter.selectors';
 import { environment } from 'src/environments/environment';
 import { WindowProvider } from './services/window-provider.service';
 
@@ -28,7 +28,7 @@ export class ProductsContainerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.productSubscription = this.store
-      .select(ProductSelectors.selectProductsByCategory)
+      .select(ProductFilterSelectors.selectFilteredProductsByCategory)
       .subscribe(products => {
         this.products = products;
         this.productRows = this.splitProducts();

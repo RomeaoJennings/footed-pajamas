@@ -1,6 +1,6 @@
 import * as fromProducts from './product/product.reducers';
 import * as fromRouter from './router/route-serializer';
-import * as fromFilters from './product-filter/product-filter.reducers';
+import * as fromFilters from './filter/filter.reducers';
 import { ActionReducerMap } from '@ngrx/store';
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
 

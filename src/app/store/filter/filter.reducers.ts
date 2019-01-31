@@ -1,8 +1,10 @@
-import { ProductFilter } from 'src/app/shared/models/product-filter.model';
-import * as FilterActions from './product-filter.actions';
+import { Filter } from 'src/app/shared/models/filter.model';
+import { FilterFactory } from 'src/app/shared/models/filter-factory.model';
+import * as FilterActions from './filter.actions';
 
 export interface State {
-  filters: ProductFilter[];
+  filters: FilterFactory[];
+  appliedFilters: Filter[];
   areLoading: boolean;
   areLoaded: boolean;
   error: string;
@@ -10,6 +12,7 @@ export interface State {
 
 const initialState: State = {
   filters: [],
+  appliedFilters: [],
   areLoading: false,
   areLoaded: false,
   error: null

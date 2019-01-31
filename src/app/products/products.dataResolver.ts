@@ -5,9 +5,9 @@ import { Store, MemoizedSelector, Action } from '@ngrx/store';
 
 import { AppState } from '../store/app.reducers';
 import * as ProductActions from '../store/product/product.actions';
-import * as FilterActions from '../store/product-filter/product-filter.actions';
+import * as FilterActions from '../store/filter/filter.actions';
 import { selectProductsAreLoadingOrLoaded } from '../store/product/product.selectors';
-import { selectFiltersAreLoadingOrLoaded } from '../store/product-filter/product-filter.selectors';
+import { selectFiltersAreLoadingOrLoaded } from '../store/filter/filter.selectors';
 
 @Injectable()
 export class ProductDataResolver implements Resolve<void> {
