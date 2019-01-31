@@ -1,11 +1,14 @@
 <h3 class="title">Shop By:</h3>
-<app-active-filters
-  *ngIf="activeFilters.length > 0"
-  [filters]="activeFilters"
-  (filterClicked)="onRemovedFilter($event)"
-></app-active-filters>
 <app-filter-group
-  *ngFor="let filterGroup of filterGroups"
+  [filterGroup]="activeFilters"
+  [icon]="checkIcon"
+  (filterClicked)="onFilterClicked($event)"
+></app-filter-group>
+<app-filter-group
+  *ngFor="let filterGroup of filterGroups; let i = index"
   [filterGroup]="filterGroup"
-  (addedFilters)="onAddedFilter($event)"
+  [groupIndex]="i"
+  [icon]="uncheckIcon"
+  [showCounts]="true"
+  (filterClicked)="onFilterClicked($event)"
 ></app-filter-group>

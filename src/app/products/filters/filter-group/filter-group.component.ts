@@ -1,26 +1,57 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { faSquare, IconDefinition } from '@fortawesome/free-regular-svg-icons';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output
+} from '@angular/core';
+import { IconDefinition } from '@fortawesome/free-regular-svg-icons';
 import { FilterGroup } from 'src/app/shared/models/filter-group.model';
-import { Filter } from 'src/app/shared/models/filter.model';
 
 @Component({
   selector: 'app-filter-group',
   templateUrl: './filter-group.component.html',
   styleUrls: ['./filter-group.component.scss']
 })
-export class FilterGroupComponent implements OnInit {
+export class FilterGroupComponent implements OnInit, OnChanges {
   @Input() filterGroup: FilterGroup;
-  @Output() addedFilters = new EventEmitter<Filter>();
-  faSquare: IconDefinition = faSquare;
+  @Input() groupIndex = -1;
+  @Input() icon: IconDefinition;
+  @Input() showCounts = false;
+
+  countsText: string[] = [];
+
+  @Output() filterClicked = new EventEmitter<{
+    groupIndex: number;
+    filterIndex: number;
+  }>();
 
   constructor() {}
 
   ngOnInit() {
-    console.log(this.filterGroup);
+    this.updateCountText();
+  }
+
+  ngOnChanges() {
+    this.updateCountText();
+  }
+
+  private updateCountText() {
+    for (const filter of this.filterGroup.filters) {
+      let countStr = '';
+      if (this.showCounts) {
+        countStr = `(${filter.count})`;
+      }
+      this.countsText.push(countStr);
+    }
   }
 
   onFilterClicked(index: number) {
     console.log(index);
-    this.addedFilters.next(this.filterGroup.filters[index]);
+    this.filterClicked.next({
+      groupIndex: this.groupIndex,
+      filterIndex: index
+    });
   }
 }

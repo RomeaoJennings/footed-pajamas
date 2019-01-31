@@ -1,8 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  faCheckSquare,
+  faSquare,
+  IconDefinition
+} from '@fortawesome/free-regular-svg-icons';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { FilterGroup } from 'src/app/shared/models/filter-group.model';
-import { Filter } from 'src/app/shared/models/filter.model';
 import {
   selectActiveFilters,
   selectApplicableFilters
@@ -19,7 +23,10 @@ export class FiltersContainerComponent implements OnInit, OnDestroy {
   private activeFilterSubscription: Subscription;
 
   filterGroups: FilterGroup[];
-  activeFilters: Filter[];
+  activeFilters: FilterGroup;
+
+  checkIcon: IconDefinition = faCheckSquare;
+  uncheckIcon: IconDefinition = faSquare;
 
   constructor(private store: Store<AppState>) {}
 
@@ -33,7 +40,9 @@ export class FiltersContainerComponent implements OnInit, OnDestroy {
 
     this.activeFilterSubscription = this.store
       .select(selectActiveFilters)
-      .subscribe(filters => (this.activeFilters = filters));
+      .subscribe(
+        filters => (this.activeFilters = { name: 'Filtering By:', filters })
+      );
   }
 
   ngOnDestroy(): void {
@@ -41,13 +50,23 @@ export class FiltersContainerComponent implements OnInit, OnDestroy {
     this.activeFilterSubscription.unsubscribe();
   }
 
-  onAddedFilter(filter: Filter) {
+  onFilterClicked(input: { groupIndex: number; filterIndex: number }) {
+    if (input.groupIndex === -1) {
+      this.onFilterRemoved(input.filterIndex);
+    } else {
+      this.onFilterAdded(input.groupIndex, input.filterIndex);
+    }
+  }
+
+  private onFilterAdded(groupIndex: number, filterIndex: number) {
     this.store.dispatch(
-      new FilterActions.AddActiveFilter({ activeFilter: filter })
+      new FilterActions.AddActiveFilter({
+        activeFilter: this.filterGroups[groupIndex].filters[filterIndex]
+      })
     );
   }
 
-  onRemovedFilter(index: number) {
+  private onFilterRemoved(index: number) {
     this.store.dispatch(new FilterActions.RemoveActiveFilter({ index }));
   }
 }

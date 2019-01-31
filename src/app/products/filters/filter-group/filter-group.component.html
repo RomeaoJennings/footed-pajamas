@@ -3,8 +3,8 @@
 </h5>
 
 <div *ngFor="let filter of filterGroup.filters; let i = index">
-  <a (click)="onFilterClicked(i)" [attr.data-index]="i" class="filter"
-    ><fa-icon [icon]="faSquare" [attr.data-index]="i"></fa-icon>
-    {{ '  ' + filter.value }} ({{ filter.count }})</a
+  <a (click)="onFilterClicked(i)" class="filter"
+    ><fa-icon [icon]="icon"></fa-icon>
+    {{ filter.value + ' ' + countsText[i] }}</a
   >
 </div>

@@ -12,7 +12,6 @@ import { ProductsComponent } from './products.component';
 import { ProductsContainerComponent } from './products.container';
 import { ProductDataResolver } from './products.dataResolver';
 import { WindowProvider } from './services/window-provider.service';
-import { ActiveFiltersComponent } from './filters/active-filters/active-filters.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { ActiveFiltersComponent } from './filters/active-filters/active-filters.
     ProductsRowComponent,
     FiltersContainerComponent,
     ProductHeaderComponent,
-    FilterGroupComponent,
-    ActiveFiltersComponent
+    FilterGroupComponent
   ],
   providers: [ProductDataResolver, WindowProvider],
   imports: [

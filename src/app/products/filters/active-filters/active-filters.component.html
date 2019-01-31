@@ -1,8 +1,0 @@
-<h5 class="filter-title">Filtering By:</h5>
-
-<a
-  *ngFor="let filter of filters; let i = index"
-  (click)="onFilterClicked(i)"
-  class="filter"
-  ><fa-icon [icon]="faCheckSquare"></fa-icon> {{ filter.value }}
-</a>
