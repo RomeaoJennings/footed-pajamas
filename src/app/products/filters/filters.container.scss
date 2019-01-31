@@ -3,8 +3,13 @@
 :host {
   padding-top: 1rem;
   display: flex;
-  justify-content: center;
+  flex-flow: column nowrap;
+  padding-left: 3rem;
   flex-basis: 27%;
   border-radius: 20px;
   border: solid $color-theme-blue 2px;
+}
+
+.title {
+  margin-bottom: 2rem;
 }

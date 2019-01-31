@@ -2,8 +2,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { FilterGroup } from 'src/app/shared/models/filter-group.model';
-import { selectApplicableFilters } from 'src/app/store/filter/filter.selectors';
+import { Filter } from 'src/app/shared/models/filter.model';
+import {
+  selectActiveFilters,
+  selectApplicableFilters
+} from 'src/app/store/filter/filter.selectors';
 import { AppState } from '../../store/app.reducers';
+import * as FilterActions from '../../store/filter/filter.actions';
 @Component({
   selector: 'app-filters-container',
   templateUrl: './filters.container.html',
@@ -11,7 +16,10 @@ import { AppState } from '../../store/app.reducers';
 })
 export class FiltersContainerComponent implements OnInit, OnDestroy {
   private filterValSubscription: Subscription;
-  private vals: FilterGroup[];
+  private activeFilterSubscription: Subscription;
+
+  filterGroups: FilterGroup[];
+  activeFilters: Filter[];
 
   constructor(private store: Store<AppState>) {}
 
@@ -19,12 +27,27 @@ export class FiltersContainerComponent implements OnInit, OnDestroy {
     this.filterValSubscription = this.store
       .select(selectApplicableFilters)
       .subscribe(vals => {
-        this.vals = vals;
-        console.log(JSON.stringify(this.vals));
+        this.filterGroups = vals;
+        console.log(JSON.stringify(this.filterGroups));
       });
+
+    this.activeFilterSubscription = this.store
+      .select(selectActiveFilters)
+      .subscribe(filters => (this.activeFilters = filters));
   }
 
   ngOnDestroy(): void {
     this.filterValSubscription.unsubscribe();
+    this.activeFilterSubscription.unsubscribe();
+  }
+
+  onAddedFilter(filter: Filter) {
+    this.store.dispatch(
+      new FilterActions.AddActiveFilter({ activeFilter: filter })
+    );
+  }
+
+  onRemovedFilter(index: number) {
+    this.store.dispatch(new FilterActions.RemoveActiveFilter({ index }));
   }
 }

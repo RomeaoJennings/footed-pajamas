@@ -1,0 +1,15 @@
+@import '../../../../styles/vars';
+.filter-title {
+  color: $color-theme-blue;
+}
+
+.filter {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.ng-fa-icon {
+  margin-right: 1rem;
+}

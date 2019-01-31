@@ -9,7 +9,7 @@ import {
 export const selectFeature = (appState: AppState) => appState.filters;
 
 export const selectFilterFactories = (appState: AppState) =>
-  selectFeature(appState).filters;
+  selectFeature(appState).filterFactories;
 
 export const selectFiltersAreLoading = (appState: AppState) =>
   selectFeature(appState).areLoading;
@@ -17,8 +17,8 @@ export const selectFiltersAreLoading = (appState: AppState) =>
 export const selectFiltersAreLoaded = (appState: AppState) =>
   selectFeature(appState).areLoaded;
 
-export const selectAppliedFilters = (appState: AppState) =>
-  selectFeature(appState).appliedFilters;
+export const selectActiveFilters = (appState: AppState) =>
+  selectFeature(appState).activeFilters;
 
 export const selectFiltersAreLoadingOrLoaded = createSelector(
   selectFiltersAreLoading,
@@ -28,12 +28,12 @@ export const selectFiltersAreLoadingOrLoaded = createSelector(
 
 export const selectFilteredProductsByCategory = createSelector(
   selectProductsByCategory,
-  selectAppliedFilters,
+  selectActiveFilters,
   projectFiltersOnProducts
 );
 
 export const selectApplicableFilters = createSelector(
-  selectProductsByCategory,
+  selectFilteredProductsByCategory,
   selectFilterFactories,
   getApplicableFilters
 );

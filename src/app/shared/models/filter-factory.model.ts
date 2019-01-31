@@ -1,13 +1,13 @@
-import { Product } from './product.model';
+import { FilterGroup } from './filter-group.model';
 import { FilterType } from './filter-type.model';
 import { Filter } from './filter.model';
-import { FilterGroup } from './filter-group.model';
+import { Product } from './product.model';
 
 export class FilterFactory {
   constructor(
     public filterType: FilterType,
     public target: string,
-    public displayString: string
+    public displayName: string
   ) {}
 
   private getValuesFromField(products: Product[]): string[] {
@@ -46,7 +46,7 @@ export class FilterFactory {
           result.set(val, result.get(val) + 1);
         }
       } else {
-        result.set(product[this.target], result.get(product[this.target] + 1));
+        result.set(product[this.target], result.get(product[this.target]) + 1);
       }
     }
     return result;
@@ -58,8 +58,14 @@ export class FilterFactory {
     const counts = this.getValueCounts(products, fieldVals);
 
     for (const item of counts) {
-      filters.push(new Filter(this.target, item[0], this.filterType, item[1]));
+      if (item[1] !== products.length) {
+        // Only add filter if it would filter at least 1 product
+        filters.push(
+          new Filter(this.target, item[0], this.filterType, item[1])
+        );
+      }
     }
-    return { name: this.displayString, filters };
+    filters.sort((a: Filter, b: Filter) => b.count - a.count);
+    return { name: this.displayName, filters };
   }
 }

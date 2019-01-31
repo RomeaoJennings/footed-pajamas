@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
+import { Action, MemoizedSelector, Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
-import { Store, MemoizedSelector, Action } from '@ngrx/store';
-
 import { AppState } from '../store/app.reducers';
-import * as ProductActions from '../store/product/product.actions';
 import * as FilterActions from '../store/filter/filter.actions';
-import { selectProductsAreLoadingOrLoaded } from '../store/product/product.selectors';
 import { selectFiltersAreLoadingOrLoaded } from '../store/filter/filter.selectors';
+import * as ProductActions from '../store/product/product.actions';
+import { selectProductsAreLoadingOrLoaded } from '../store/product/product.selectors';
 
 @Injectable()
 export class ProductDataResolver implements Resolve<void> {
@@ -19,7 +18,7 @@ export class ProductDataResolver implements Resolve<void> {
     );
     this.fetchData(
       selectFiltersAreLoadingOrLoaded,
-      new FilterActions.FetchFilters()
+      new FilterActions.FetchFactories()
     );
   }
 

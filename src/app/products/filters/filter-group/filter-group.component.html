@@ -1,0 +1,10 @@
+<h5 *ngIf="filterGroup.filters.length > 0" class="filter-title">
+  {{ filterGroup.name }}
+</h5>
+
+<div *ngFor="let filter of filterGroup.filters; let i = index">
+  <a (click)="onFilterClicked(i)" [attr.data-index]="i" class="filter"
+    ><fa-icon [icon]="faSquare" [attr.data-index]="i"></fa-icon>
+    {{ '  ' + filter.value }} ({{ filter.count }})</a
+  >
+</div>

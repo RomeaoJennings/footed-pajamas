@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { switchMap, map, catchError } from 'rxjs/operators';
-import { Effect, Actions, ofType } from '@ngrx/effects';
 import { AngularFirestore } from '@angular/fire/firestore';
-
-import * as FilterActions from './filter.actions';
-import { FilterFactory } from 'src/app/shared/models/filter-factory.model';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { ROUTER_NAVIGATION } from '@ngrx/router-store';
 import { of } from 'rxjs';
-import { Filter } from 'src/app/shared/models/filter.model';
+import { catchError, map, switchMap } from 'rxjs/operators';
+import { FilterFactory } from 'src/app/shared/models/filter-factory.model';
+import * as FilterActions from './filter.actions';
 
 @Injectable()
 export class FilterEffects {
@@ -14,7 +13,7 @@ export class FilterEffects {
 
   @Effect()
   fetchFilters = this.actions$.pipe(
-    ofType<FilterActions.FetchFilters>(FilterActions.FETCH),
+    ofType(FilterActions.FETCH_FACTORIES),
     switchMap(() =>
       this.db
         .collection<FilterFactory>('ProductFilters')
@@ -23,18 +22,26 @@ export class FilterEffects {
           map(data => {
             data = data.map(
               filter =>
+                // Need to remap them to ensure that FilterFactory methods are available.
                 new FilterFactory(
                   filter.filterType,
                   filter.target,
-                  filter.displayString
+                  filter.displayName
                 )
             );
-            return new FilterActions.FetchFiltersSuccess({ filters: data });
+            return new FilterActions.FetchFactoriesSuccess({ factories: data });
           }),
           catchError(error =>
-            of(new FilterActions.FetchFiltersError({ error }))
+            of(new FilterActions.FetchFactoriesError({ error }))
           )
         )
     )
+  );
+
+  @Effect() clearFiltersOnNavigation = this.actions$.pipe(
+    ofType(ROUTER_NAVIGATION),
+    switchMap(() => {
+      return of(new FilterActions.ClearActiveFilters());
+    })
   );
 }
