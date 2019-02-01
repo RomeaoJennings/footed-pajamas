@@ -1,13 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
 import { environment } from '../environments/environment';
-import { AppRoutingModule } from './routing/app-routing.module';
-import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
-import { ProductsModule } from './products/products.module';
 import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
+import { AppRoutingModule } from './routing/app-routing.module';
 import { AppStoreModule } from './store/app-store.module';
 
 @NgModule({
@@ -15,10 +12,8 @@ import { AppStoreModule } from './store/app-store.module';
   imports: [
     environment.production ? [] : StoreDevtoolsModule.instrument(),
     BrowserModule,
-    AppStoreModule,
-    SharedModule,
     CoreModule,
-    ProductsModule,
+    AppStoreModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]

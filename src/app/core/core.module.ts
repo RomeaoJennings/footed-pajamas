@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SharedModule } from '../shared/shared.module';
 import { CoreRoutingModule } from './core-routing.module';
 import { CoreComponent } from './core.component';
 import { FooterComponent } from './footer/footer.component';
@@ -16,7 +17,7 @@ import { HomeComponent } from './home/home.component';
     FooterComponent,
     CoreComponent
   ],
-  imports: [CommonModule, FontAwesomeModule, CoreRoutingModule],
+  imports: [CommonModule, SharedModule, FontAwesomeModule, CoreRoutingModule],
   exports: [CoreComponent]
 })
 export class CoreModule {}

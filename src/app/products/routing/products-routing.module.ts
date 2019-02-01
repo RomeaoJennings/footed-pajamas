@@ -6,7 +6,7 @@ import { ProductCategoryGuard } from './guards/product-category.guard';
 
 const routes: Routes = [
   {
-    path: ':category',
+    path: '',
     component: ProductsContainerComponent,
     resolve: { loadData: ProductDataResolver },
     canActivate: [ProductCategoryGuard]

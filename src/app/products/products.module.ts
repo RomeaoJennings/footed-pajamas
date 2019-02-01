@@ -4,6 +4,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { environment } from 'src/environments/environment';
+import { SharedModule } from '../shared/shared.module';
 import { FilterGroupComponent } from './filters/filter-group/filter-group.component';
 import { FiltersContainerComponent } from './filters/filters.container';
 import { ProductHeaderComponent } from './product-header/product-header.component';
@@ -26,6 +27,7 @@ import { ProductsStoreModule } from './store/products-store.module';
   providers: [WindowProvider],
   imports: [
     CommonModule,
+    SharedModule,
     FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
