@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../shared/models/product.model';
 
 @Component({
@@ -9,4 +9,9 @@ import { Product } from '../../shared/models/product.model';
 export class ProductsComponent {
   @Input() productRows: Product[][] = [];
   @Input() numberOfColumns = 3;
+  @Output() productClicked = new EventEmitter<Product>();
+
+  onProductClicked(product: Product) {
+    this.productClicked.emit(product);
+  }
 }

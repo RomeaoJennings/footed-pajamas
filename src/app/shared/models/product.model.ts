@@ -1,10 +1,11 @@
-import { FirestoreProduct } from './firestore-product.model';
 import { FirestoreProductDetail } from './firestore-product-detail.model';
+import { FirestoreProduct } from './firestore-product.model';
 
 export class Product {
   constructor(
     public name: string,
     public id: string,
+    public productFamilyId: string,
     public material: string,
     public type: string,
     public category: string,
@@ -23,6 +24,7 @@ export class Product {
   ): Product {
     return new Product(
       product.name.replace('{Category}', Product.capitalize(detail.category)),
+      detail.id,
       product.id,
       product.material,
       product.type,
@@ -31,6 +33,7 @@ export class Product {
       detail.listPrice,
       detail.salePrice,
       detail.imageUrls.map(
+        // TODO: Move configuration into environments.ts
         url =>
           `https://firebasestorage.googleapis.com/v0/b/footed-pajamas.appspot.com/o/${url}?alt=media`
       ),

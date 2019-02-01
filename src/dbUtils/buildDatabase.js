@@ -20,17 +20,17 @@ function processProducts(products) {
 
     for (const detail of details) {
       detail.productId = product.id;
-      const docId = `${detail.productId}-${detail.category
+      detail.id = `${detail.productId}-${detail.category
         .charAt(0)
         .toUpperCase()}`;
-      addRecord('ProductDetail', buildDetailRecord(detail), docId);
+      addRecord('ProductDetail', buildDetailRecord(detail));
     }
   }
 }
 
-function addRecord(collection, record, docId) {
+function addRecord(collection, record) {
   db.collection(collection)
-    .doc(docId)
+    .doc(record.id)
     .set(record)
     .catch(err => console.log(err));
 }

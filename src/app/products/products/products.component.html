@@ -2,4 +2,5 @@
   *ngFor="let row of productRows"
   [row]="row"
   [numberOfColumns]="numberOfColumns"
+  (productClicked)="onProductClicked($event)"
 ></app-products-row>

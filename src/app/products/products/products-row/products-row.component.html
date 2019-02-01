@@ -1,5 +1,9 @@
 <div class="row">
-  <div class="image-column" *ngFor="let product of row">
+  <div
+    class="image-column"
+    *ngFor="let product of row; let i = index"
+    (click)="onProductClicked(i)"
+  >
     <img
       class="product-image"
       [src]="product.imageUrls[0]"

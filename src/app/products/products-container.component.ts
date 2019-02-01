@@ -1,4 +1,5 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -20,7 +21,9 @@ export class ProductsContainerComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<AppState>,
-    private windowProvider: WindowProvider
+    private windowProvider: WindowProvider,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.onResize();
   }
@@ -32,6 +35,10 @@ export class ProductsContainerComponent implements OnInit, OnDestroy {
         this.products = products;
         this.productRows = this.splitProducts();
       });
+  }
+
+  onProductClicked(product: Product) {
+    this.router.navigate([product.id], { relativeTo: this.route });
   }
 
   @HostListener('window:resize')

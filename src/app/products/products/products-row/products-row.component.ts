@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/shared/models/product.model';
 
 @Component({
@@ -9,10 +9,15 @@ import { Product } from 'src/app/shared/models/product.model';
 export class ProductsRowComponent implements OnInit {
   @Input() row: Product[] = [];
   @Input() numberOfColumns = 0;
+  @Output() productClicked = new EventEmitter<Product>();
 
   blankColumns: number;
 
   constructor() {}
+
+  onProductClicked(index: number) {
+    this.productClicked.emit(this.row[index]);
+  }
 
   ngOnInit() {
     this.blankColumns = this.numberOfColumns - this.row.length;

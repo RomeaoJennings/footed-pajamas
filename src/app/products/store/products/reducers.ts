@@ -1,22 +1,27 @@
 import { Product } from 'src/app/shared/models/product.model';
+import { AppState } from 'src/app/store/app.reducers';
 import * as ProductActions from './actions';
 
-export interface State {
+export interface FeatureState {
   products: Product[];
   areLoaded: boolean;
   areLoading: boolean;
   error: string;
 }
 
-const initialState: State = {
+const initialState: FeatureState = {
   products: [],
   areLoaded: false,
   areLoading: false,
   error: null
 };
 
+export interface State extends AppState {
+  products: FeatureState;
+}
+
 export function productReducer(
-  state: State = initialState,
+  state: FeatureState = initialState,
   action: ProductActions.ProductActions
 ) {
   switch (action.type) {

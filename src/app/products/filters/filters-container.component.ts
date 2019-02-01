@@ -35,7 +35,6 @@ export class FiltersContainerComponent implements OnInit, OnDestroy {
       .select(selectApplicableFilters)
       .subscribe(vals => {
         this.filterGroups = vals;
-        console.log(JSON.stringify(this.filterGroups));
       });
 
     this.activeFilterSubscription = this.store

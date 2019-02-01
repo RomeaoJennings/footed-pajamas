@@ -4,4 +4,5 @@ export interface FirestoreProductDetail {
   listPrice: number;
   salePrice: number;
   imageUrls: string[];
+  id: string;
 }

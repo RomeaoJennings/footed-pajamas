@@ -48,7 +48,6 @@ export class FilterGroupComponent implements OnInit, OnChanges {
   }
 
   onFilterClicked(index: number) {
-    console.log(index);
     this.filterClicked.next({
       groupIndex: this.groupIndex,
       filterIndex: index
