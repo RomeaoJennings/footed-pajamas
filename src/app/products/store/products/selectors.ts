@@ -2,7 +2,7 @@ import { Params } from '@angular/router';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { Product } from 'src/app/shared/models/product.model';
 import { selectRouterParams } from '../../../store/router/router.selectors';
-import * as fromProducts from './product.reducers';
+import * as fromProducts from './reducers';
 
 export const selectFeature = createFeatureSelector<fromProducts.State>(
   'products'

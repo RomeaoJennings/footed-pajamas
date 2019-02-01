@@ -3,10 +3,10 @@ import { Resolve } from '@angular/router';
 import { Action, MemoizedSelector, Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
 import { AppState } from '../../../store/app.reducers';
-import * as FilterActions from '../filter/filter.actions';
-import { selectFiltersAreLoadingOrLoaded } from '../filter/filter.selectors';
-import * as ProductActions from './product.actions';
-import { selectProductsAreLoadingOrLoaded } from './product.selectors';
+import * as FilterActions from '../filters/actions';
+import { selectFiltersAreLoadingOrLoaded } from '../filters/selectors';
+import * as ProductActions from './actions';
+import { selectProductsAreLoadingOrLoaded } from './selectors';
 
 @Injectable()
 export class ProductDataResolver implements Resolve<void> {

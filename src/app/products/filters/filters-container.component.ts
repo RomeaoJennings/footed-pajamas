@@ -9,10 +9,10 @@ import { Subscription } from 'rxjs';
 import {
   selectActiveFilters,
   selectApplicableFilters
-} from 'src/app/products/store/filter/filter.selectors';
+} from 'src/app/products/store/filters/selectors';
 import { FilterGroup } from 'src/app/shared/models/filter-group.model';
 import { AppState } from '../../store/app.reducers';
-import * as FilterActions from '../store/filter/filter.actions';
+import * as FilterActions from '../store/filters/actions';
 @Component({
   selector: 'app-filters-container',
   templateUrl: './filters-container.component.html',

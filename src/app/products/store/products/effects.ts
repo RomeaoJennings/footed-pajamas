@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { combineLatest } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
-import { Effect, Actions, ofType } from '@ngrx/effects';
 import {
   AngularFirestore,
   AngularFirestoreCollection
 } from '@angular/fire/firestore';
-
-import { FirestoreProduct } from 'src/app/shared/models/firestore-product.model';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { combineLatest } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { FirestoreProductDetail } from 'src/app/shared/models/firestore-product-detail.model';
+import { FirestoreProduct } from 'src/app/shared/models/firestore-product.model';
 import { Product } from 'src/app/shared/models/product.model';
-import * as ProductActions from './product.actions';
+import * as ProductActions from './actions';
 
 @Injectable()
 export class ProductEffects {

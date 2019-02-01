@@ -1,6 +1,6 @@
 import { FilterFactory } from 'src/app/shared/models/filter-factory.model';
 import { Filter } from 'src/app/shared/models/filter.model';
-import * as FilterActions from './filter.actions';
+import * as FilterActions from './actions';
 
 export interface State {
   filterFactories: FilterFactory[];

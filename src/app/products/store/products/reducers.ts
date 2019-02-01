@@ -1,5 +1,5 @@
 import { Product } from 'src/app/shared/models/product.model';
-import * as ProductActions from './product.actions';
+import * as ProductActions from './actions';
 
 export interface State {
   products: Product[];

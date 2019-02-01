@@ -1,10 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { selectProductsByCategory } from '../product/product.selectors';
-import {
-  getApplicableFilters,
-  projectFiltersOnProducts
-} from './filter.projectors';
-import * as fromFilter from './filter.reducers';
+import { selectProductsByCategory } from '../products/selectors';
+import { getApplicableFilters, projectFiltersOnProducts } from './projectors';
+import * as fromFilter from './reducers';
 
 export const selectFeature = createFeatureSelector<fromFilter.State>('filters');
 

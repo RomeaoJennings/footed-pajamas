@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Product } from '../shared/models/product.model';
 import { AppState } from '../store/app.reducers';
 import { WindowProvider } from './services/window-provider.service';
-import * as ProductFilterSelectors from './store/filter/filter.selectors';
+import * as ProductFilterSelectors from './store/filters/selectors';
 
 @Component({
   selector: 'app-products-container',

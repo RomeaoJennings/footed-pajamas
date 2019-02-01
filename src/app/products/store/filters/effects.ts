@@ -5,7 +5,7 @@ import { ROUTER_NAVIGATION } from '@ngrx/router-store';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { FilterFactory } from 'src/app/shared/models/filter-factory.model';
-import * as FilterActions from './filter.actions';
+import * as FilterActions from './actions';
 
 @Injectable()
 export class FilterEffects {
