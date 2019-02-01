@@ -9,8 +9,8 @@ import * as ProductFilterSelectors from './store/filter/filter.selectors';
 
 @Component({
   selector: 'app-products-container',
-  templateUrl: './products.container.html',
-  styleUrls: ['./products.container.scss']
+  templateUrl: './products-container.component.html',
+  styleUrls: ['./products-container.component.scss']
 })
 export class ProductsContainerComponent implements OnInit, OnDestroy {
   productSubscription: Subscription;

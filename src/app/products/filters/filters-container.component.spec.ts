@@ -5,7 +5,7 @@ import { AppRoutingModule } from 'src/app/routing/app-routing.module';
 import { AppStoreModule } from 'src/app/store/app-store.module';
 import { filterReducer } from '../store/filter/filter.reducers';
 import { FilterGroupComponent } from './filter-group/filter-group.component';
-import { FiltersContainerComponent } from './filters.container';
+import { FiltersContainerComponent } from './filters-container.component';
 
 describe('FiltersContainerComponent', () => {
   let component: FiltersContainerComponent;

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppRoutingModule } from '../routing/app-routing.module';
-import { ProductsContainerComponent } from './products.container';
+import { ProductsContainerComponent } from './products-container.component';
 import { ProductsModule } from './products.module';
 
 describe('ProductsContainerComponent', () => {

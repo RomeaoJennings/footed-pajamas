@@ -15,8 +15,8 @@ import { AppState } from '../../store/app.reducers';
 import * as FilterActions from '../store/filter/filter.actions';
 @Component({
   selector: 'app-filters-container',
-  templateUrl: './filters.container.html',
-  styleUrls: ['./filters.container.scss']
+  templateUrl: './filters-container.component.html',
+  styleUrls: ['./filters-container.component.scss']
 })
 export class FiltersContainerComponent implements OnInit, OnDestroy {
   private filterValSubscription: Subscription;
