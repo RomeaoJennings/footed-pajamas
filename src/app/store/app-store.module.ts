@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-
-import { ProductEffects } from './product/product.effects';
+import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducers';
 import { CustomSerializer } from './router/route-serializer';
-import { FilterEffects } from './filter/filter.effects';
 
 @NgModule({
   imports: [
-    EffectsModule.forRoot([ProductEffects, FilterEffects]),
+    EffectsModule.forRoot([]),
     StoreModule.forRoot(reducers),
     StoreRouterConnectingModule.forRoot({ serializer: CustomSerializer })
   ]

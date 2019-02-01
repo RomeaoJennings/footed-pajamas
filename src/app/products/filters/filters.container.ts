@@ -6,13 +6,13 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { FilterGroup } from 'src/app/shared/models/filter-group.model';
 import {
   selectActiveFilters,
   selectApplicableFilters
-} from 'src/app/store/filter/filter.selectors';
+} from 'src/app/products/store/filter/filter.selectors';
+import { FilterGroup } from 'src/app/shared/models/filter-group.model';
 import { AppState } from '../../store/app.reducers';
-import * as FilterActions from '../../store/filter/filter.actions';
+import * as FilterActions from '../store/filter/filter.actions';
 @Component({
   selector: 'app-filters-container',
   templateUrl: './filters.container.html',

@@ -1,12 +1,11 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-
+import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Product } from '../shared/models/product.model';
 import { AppState } from '../store/app.reducers';
-import * as ProductFilterSelectors from '../store/filter/filter.selectors';
-import { environment } from 'src/environments/environment';
 import { WindowProvider } from './services/window-provider.service';
+import * as ProductFilterSelectors from './store/filter/filter.selectors';
 
 @Component({
   selector: 'app-products-container',

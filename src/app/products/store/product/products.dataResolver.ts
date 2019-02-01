@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Action, MemoizedSelector, Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
-import { AppState } from '../store/app.reducers';
-import * as FilterActions from '../store/filter/filter.actions';
-import { selectFiltersAreLoadingOrLoaded } from '../store/filter/filter.selectors';
-import * as ProductActions from '../store/product/product.actions';
-import { selectProductsAreLoadingOrLoaded } from '../store/product/product.selectors';
+import { AppState } from '../../../store/app.reducers';
+import * as FilterActions from '../filter/filter.actions';
+import { selectFiltersAreLoadingOrLoaded } from '../filter/filter.selectors';
+import * as ProductActions from './product.actions';
+import { selectProductsAreLoadingOrLoaded } from './product.selectors';
 
 @Injectable()
 export class ProductDataResolver implements Resolve<void> {
