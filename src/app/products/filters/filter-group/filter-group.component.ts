@@ -15,9 +15,9 @@ import { FilterGroup } from 'src/app/shared/models/filter-group.model';
   styleUrls: ['./filter-group.component.scss']
 })
 export class FilterGroupComponent implements OnInit, OnChanges {
-  @Input() filterGroup: FilterGroup;
+  @Input() filterGroup: FilterGroup = { name: '', filters: [] };
   @Input() groupIndex = -1;
-  @Input() icon: IconDefinition;
+  @Input() icon: IconDefinition = null;
   @Input() showCounts = false;
 
   countsText: string[] = [];

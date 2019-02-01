@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FilterGroupComponent } from './filter-group.component';
 
 describe('FilterGroupComponent', () => {
@@ -8,9 +8,9 @@ describe('FilterGroupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FilterGroupComponent ]
-    })
-    .compileComponents();
+      declarations: [FilterGroupComponent],
+      imports: [FontAwesomeModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
